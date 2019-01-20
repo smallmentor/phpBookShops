@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BookShops-新增書籍</title>
+    <title>BookShops-新增出版社</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
@@ -33,8 +33,8 @@
       <!-- 新增資料 -->
       <?php
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
-          $sql = $pdo->prepare('INSERT INTO books VALUES(?, ?, ?, ?, ?, ?, ?)') ;
-          if($sql->execute([$_REQUEST['ISBN'], $_REQUEST['name'], $_REQUEST['date'], (int)$_REQUEST['price'], $_REQUEST['class'], $_REQUEST['W_ID'], $_REQUEST['PH_ID']])) {
+          $sql = $pdo->prepare('INSERT INTO publishing_house VALUES(?, ?, ?, ?)') ;
+          if($sql->execute([$_REQUEST['ID'], $_REQUEST['name'], $_REQUEST['phone'], (int)$_REQUEST['address']])) {
             echo '<div class="alert alert-success" role="alert">資料新增成功!</div>';
           } else {
             echo '<div class="alert alert-danger " role="alert">資料新增失敗!</div>';
@@ -45,86 +45,40 @@
     <!-- 表單 -->
     <form action="" method="post" class="needs-validation" novalidate>
       <div class="form-group row">
-        <label for="inputName" class="col-md-2 col-form-label">書名</label>
+        <label for="inputID" class="col-md-2 col-form-label">出版社編號</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" id="inputName" name="name" placeholder="請輸入書名" required>
+          <input type="text" class="form-control" id="inputID" name="ID" placeholder="請輸入出版社編號" required>
           <div class="invalid-feedback">
-            請輸入書名
+            請輸入出版社編號
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputW_ID" class="col-md-2 col-form-label">作者</label>
+        <label for="inputName" class="col-md-2 col-form-label">出版社名稱</label>
         <div class="col-md-10">
-          <select class="form-control" id="inputW_ID" name="W_ID">
-            <?php
-              foreach($pdo->query('select * from writers') as $row) {
-                echo '<option value="'.$row['W_ID'].'">'.$row['W_NAME'].'</option>';
-              }
-            ?>
-          </select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputPH_ID" class="col-md-2 col-form-label">出版社</label>
-        <div class="col-md-10">
-          <select class="form-control" id="inputPH_ID" name="PH_ID">
-            <?php
-              foreach($pdo->query('select * from publishing_house') as $row) {
-                echo '<option value="'.$row['PH_ID'].'">'.$row['PH_NAME'].'</option>';
-              }
-            ?>
-          </select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputPrice" class="col-md-2 col-form-label">價格</label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" id="inputPrice" name="price" placeholder="請輸入價格" required>
+          <input type="text" class="form-control" id="inputName" name="name" placeholder="請輸入出版社名稱" required>
           <div class="invalid-feedback">
-            請輸入價格
+            請輸入出版社名稱
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputISBN" class="col-md-2 col-form-label">ISBN</label>
+        <label for="inputPhone" class="col-md-2 col-form-label">聯絡電話</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" id="inputISBN" name="ISBN" placeholder="請輸入ISBN" aria-describedby="inputGroupPrepend" required>
-          <div class="invalid-feedback">
-            請輸入ISBN
-          </div>
+          <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="請輸入聯絡電話" aria-describedby="inputGroupPrepend">
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputDate" class="col-md-2 col-form-label">出版日期</label>
+        <label for="inputAddress" class="col-md-2 col-form-label">地址</label>
         <div class="col-md-10">
-          <input type="date" class="form-control" id="inputDate" name="date" placeholder="請輸入出版日期">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputClass" class="col-md-2 col-form-label">類別</label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" id="inputClass" name="class" placeholder="請輸入類別">
+          <input type="text" class="form-control" id="inputAddress" name="address" placeholder="請輸入地址" aria-describedby="inputGroupPrepend">
         </div>
       </div>
       <div class="form-group row">
         <div class="col-auto">
-          <button type="submit" class="btn btn-dark mb-2" name="btn_submit" value="books">新增書籍</button>
+          <button type="submit" class="btn btn-dark mb-2" name="btn_submit" value="books">新增出版社</button>
         </div>
         <div class="col"></div>
-      </div>
-      <div class="form-group row justify-content-end form-inline">
-        <label class="col-auto align-self-end text-muted" style="font-size:12px;">選項裡沒有需要的出版社或作者嗎?</label>
-        <div class="col-auto">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <button type="button" class="btn btn-dark" name="btn_submit" value="publishing_house" onclick="location.href='insert-ph.php'">新增出版社</button>
-            </div>
-            <div class="input-group-append">
-              <button type="button" class="btn btn-dark" name="btn_submit" value="writers" onclick="location.href='insert-writers.php'">新增作者</button>
-            </div>
-          </div>
-        </div>
       </div>
     </form>
 
@@ -150,6 +104,7 @@
     })();
     </script>
     </div>
+
 
     <!-- jQuery’s slim build -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

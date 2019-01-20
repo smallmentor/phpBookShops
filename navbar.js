@@ -1,6 +1,6 @@
 document.writeln("<nav class=\'navbar navbar-expand-md navbar-dark bg-dark fixed-top\'>");
 document.writeln("  <div class=\'container\'>");
-document.writeln("    <a class=\'navbar-brand\' href=\'#\'>BookShops</a>");
+document.writeln("    <a class=\'navbar-brand\' href=\'index.php\'>BookShops</a>");
 document.writeln("    <button class=\'navbar-toggler\' type=\'button\' data-toggle=\'collapse\' data-target=\'#navbarSupportedContent\' aria-controls=\'navbarSupportedContent\' aria-expanded=\'false\' aria-label=\'Toggle navigation\'>");
 document.writeln("      <span class=\'navbar-toggler-icon\'></span>");
 document.writeln("    </button>");

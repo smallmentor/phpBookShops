@@ -20,7 +20,7 @@
     <!-- navbar -->
     <script type="text/javascript" src="navbar.js"></script>
     <!-- main -->
-    <div class="container" style="margin-top:75px;" id="content">
+    <div class="container" style="margin-top:55px;" id="content">
       <!-- 連接資料庫 -->
       <?php
         try {
@@ -45,7 +45,7 @@
       <div class="row">
         <?php
           $sql = 'SELECT books.B_NAME, books.B_PRICE, writers.W_NAME FROM books, writers WHERE books.W_ID = writers.W_ID';
-          if($_SERVER["REQUEST_METHOD"]=="POST" || !empty($_REQUEST['keyword'])) {
+          if($_SERVER["REQUEST_METHOD"]=="POST" && !empty($_REQUEST['keyword'])) {
             $sql = $sql." AND books.B_NAME LIKE '%".$_REQUEST['keyword']."%'";
           }
           
@@ -53,9 +53,9 @@
             echo '    <div class="col">';
             echo '      <div class="card mb-4" style="width: 15rem;">';
             echo '        <ul class="list-group list-group-flush">';
-            echo '          <li class="list-group-item">'.$row['B_NAME' ].'</li>';
-            echo '          <li class="list-group-item">'.$row['B_PRICE'].'</li>';
-            echo '          <li class="list-group-item">'.$row['W_NAME' ].'</li>';
+            echo '          <li class="list-group-item">'.htmlspecialchars($row['B_NAME' ]).'</li>';
+            echo '          <li class="list-group-item">'.htmlspecialchars($row['B_PRICE']).'</li>';
+            echo '          <li class="list-group-item">'.htmlspecialchars($row['W_NAME' ]).'</li>';
             echo '        </ul>';
             echo '      </div>';
             echo '    </div>';
