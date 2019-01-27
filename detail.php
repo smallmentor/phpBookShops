@@ -27,12 +27,46 @@
       } catch (PDOException $err) {
         die("資料庫無法連接");
       }
+
+      foreach($pdo->query('SELECT * FROM books, publishing_house, writers WHERE books.W_ID = writers.W_ID AND books.PH_ID = publishing_house.PH_ID AND ISBN = '.$_GET["ISBN"]) as $row) {
+        $ISBN    = $row["ISBN"];
+        $name    = $row["B_NAME"];
+        $date    = $row["B_DATE"];
+        $price   = $row["B_PRICE"];
+        $class   = $row["B_CLASS"];
+        $W_NAME  = $row["W_NAME"];
+        $PH_NAME = $row["PH_NAME"];
+      }
     ?>
     
-    <div class="container" style="margin-top:55px;" id="content">
-      
-
-    </div>
+    <div class="container" style="margin-top:65px;" id="content">
+    <form>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">書名：</label>
+            <label class="col col-form-label"><?php echo $name ?></label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">作者：</label>
+            <label class="col col-form-label"><?php echo $W_NAME ?></label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">出版社：</label>
+            <label class="col col-form-label"><?php echo $PH_NAME ?></label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">價格</label>
+            <label class="col col-form-label"><?php echo $price.' 元' ?></label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">出版日期</label>
+            <label class="col col-form-label"><?php echo $date ?></label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">類別</label>
+            <label class="col col-form-label"><?php echo $class ?></label>
+        </div>
+        </div>
+    </form>
     <!-- jQuery’s slim build -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

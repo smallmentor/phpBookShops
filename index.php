@@ -57,7 +57,8 @@
             echo '          <li class="list-group-item">'.htmlspecialchars($row['B_NAME' ]).'</li>';
             echo '          <li class="list-group-item">價格：'.htmlspecialchars($row['B_PRICE']).'</li>';
             echo '          <li class="list-group-item">作者：'.htmlspecialchars($row['W_NAME' ]).'</li>';
-            echo '          <li class="list-group-item"><button class="btn btn-dark" type="submit" name="ISBN" value="'.htmlspecialchars($row["ISBN"]).'">修改資料</button></li>';
+            echo '          <li class="list-group-item"><button class="btn btn-dark" type="submit" name="ISBN" value="'.htmlspecialchars($row["ISBN"]).'">修改資料</button>';
+            echo "          <button type='button' class='btn btn-dark' onclick='location.href=\"detail.php?ISBN=".htmlspecialchars($row['ISBN' ])."\"'>詳細資料</button></li>";
             echo '        </ul>';
             echo '      </div>';
             echo '    </div>';
@@ -65,6 +66,7 @@
         ?>
       </div>
       </form>
+      <button type="button" class="btn btn-dark" onclick="location.href='detail.php?ISBN='">新增作者</button>
     </div>
 
 <!-- jQuery’s slim build -->

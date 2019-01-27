@@ -118,10 +118,10 @@
         <div class="col-auto">
           <div class="input-group">
             <div class="input-group-prepend">
-              <button type="button" class="btn btn-dark" name="btn_submit" value="publishing_house" onclick="location.href='insert-ph.php'">新增出版社</button>
+              <button type="button" class="btn btn-dark" onclick="location.href='insert-ph.php'">新增出版社</button>
             </div>
             <div class="input-group-append">
-              <button type="button" class="btn btn-dark" name="btn_submit" value="writers" onclick="location.href='insert-writers.php'">新增作者</button>
+              <button type="button" class="btn btn-dark" onclick="location.href='insert-writers.php'">新增作者</button>
             </div>
           </div>
         </div>
