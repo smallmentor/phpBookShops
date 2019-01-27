@@ -42,28 +42,30 @@
       </form>
       
       <!-- 搜尋結果 -->
+      <form action="update.php" method="post">
       <div class="row">
         <?php
-          $sql = 'SELECT books.B_NAME, books.B_PRICE, writers.W_NAME FROM books, writers WHERE books.W_ID = writers.W_ID';
+          $sql = 'SELECT books.ISBN, books.B_NAME, books.B_PRICE, writers.W_NAME FROM books, writers WHERE books.W_ID = writers.W_ID';
           if($_SERVER["REQUEST_METHOD"]=="POST" && !empty($_REQUEST['keyword'])) {
             $sql = $sql." AND books.B_NAME LIKE '%".$_REQUEST['keyword']."%'";
           }
           
           foreach($pdo->query($sql) as $row) {
             echo '    <div class="col">';
-            echo '      <div class="card mb-4" style="width: 15rem;">';
+            echo '      <div class="card mb-4 border-dark bg-light" style="width: 15rem;">';
             echo '        <ul class="list-group list-group-flush">';
             echo '          <li class="list-group-item">'.htmlspecialchars($row['B_NAME' ]).'</li>';
-            echo '          <li class="list-group-item">'.htmlspecialchars($row['B_PRICE']).'</li>';
-            echo '          <li class="list-group-item">'.htmlspecialchars($row['W_NAME' ]).'</li>';
+            echo '          <li class="list-group-item">價格：'.htmlspecialchars($row['B_PRICE']).'</li>';
+            echo '          <li class="list-group-item">作者：'.htmlspecialchars($row['W_NAME' ]).'</li>';
+            echo '          <li class="list-group-item"><button class="btn btn-dark" type="submit" name="ISBN" value="'.htmlspecialchars($row["ISBN"]).'">修改資料</button></li>';
             echo '        </ul>';
             echo '      </div>';
             echo '    </div>';
           }
         ?>
       </div>
+      </form>
     </div>
-
 
 <!-- jQuery’s slim build -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
