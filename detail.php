@@ -39,34 +39,38 @@
       }
     ?>
     
-    <div class="container" style="margin-top:65px;" id="content">
+    <div class="container" style="margin-top:85px;" id="content">
     <form>
-        <div class="form-group row">
-            <label class="col-sm-3 col-form-label">書名：</label>
-            <label class="col col-form-label"><?php echo $name ?></label>
+        <div class="form-group">
+            <label class="col-form-label" style="width: 10rem;">書名：</label>
+            <label class="col-form-label"><?php echo $name ?></label>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-3 col-form-label">作者：</label>
-            <label class="col col-form-label"><?php echo $W_NAME ?></label>
+        <div class="form-group">
+            <label class="col-form-label" style="width: 10rem;">作者：</label>
+            <label class="col-form-label"><?php echo $W_NAME ?></label>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-3 col-form-label">出版社：</label>
-            <label class="col col-form-label"><?php echo $PH_NAME ?></label>
+        <div class="form-group">
+            <label class="col-form-label" style="width: 10rem;">出版社：</label>
+            <label class="col-form-label"><?php echo $PH_NAME ?></label>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-3 col-form-label">價格</label>
-            <label class="col col-form-label"><?php echo $price.' 元' ?></label>
+        <div class="form-group">
+            <label class="col-form-label" style="width: 10rem;">價格：</label>
+            <label class="col-form-label"><?php echo $price.' 元' ?></label>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-3 col-form-label">出版日期</label>
-            <label class="col col-form-label"><?php echo $date ?></label>
+        <div class="form-group">
+            <label class="col-form-label" style="width: 10rem;">出版日期：</label>
+            <label class="col-form-label"><?php echo $date ?></label>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-3 col-form-label">類別</label>
-            <label class="col col-form-label"><?php echo $class ?></label>
+        <div class="form-group">
+            <label class="col-form-label" style="width: 10rem;">類別：</label>
+            <label class="col-form-label"><?php echo $class ?></label>
         </div>
+        <div class="form-group">
+            <label class="col-form-label" style="width: 10rem;">ISBN：</label>
+            <label class="col-form-label"><?php echo $ISBN ?></label>
         </div>
     </form>
+
     <!-- jQuery’s slim build -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

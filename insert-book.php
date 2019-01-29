@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -29,7 +29,7 @@
       }
     ?>
     
-    <div class="container" style="margin-top:55px;" id="content">
+    <div class="container" style="margin-top:85px;" id="content">
       <!-- 新增資料 -->
       <?php
         if ($_SERVER["REQUEST_METHOD"]=="POST") {

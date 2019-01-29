@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -20,7 +20,7 @@
     <!-- navbar -->
     <script type="text/javascript" src="navbar.js"></script>
     <!-- main -->
-    <div class="container" style="margin-top:55px;" id="content">
+    <div class="container" style="margin-top:85px;" id="content">
       <!-- 連接資料庫 -->
       <?php
         try {
@@ -43,7 +43,7 @@
       
       <!-- 搜尋結果 -->
       <form action="update.php" method="post">
-      <div class="row">
+      <div class="row justify-content-between">
         <?php
           $sql = 'SELECT books.ISBN, books.B_NAME, books.B_PRICE, writers.W_NAME FROM books, writers WHERE books.W_ID = writers.W_ID';
           if($_SERVER["REQUEST_METHOD"]=="POST" && !empty($_REQUEST['keyword'])) {
@@ -51,22 +51,22 @@
           }
           
           foreach($pdo->query($sql) as $row) {
-            echo '    <div class="col">';
+            echo '    <div class="col-auto">';
             echo '      <div class="card mb-4 border-dark bg-light" style="width: 15rem;">';
             echo '        <ul class="list-group list-group-flush">';
             echo '          <li class="list-group-item">'.htmlspecialchars($row['B_NAME' ]).'</li>';
             echo '          <li class="list-group-item">價格：'.htmlspecialchars($row['B_PRICE']).'</li>';
             echo '          <li class="list-group-item">作者：'.htmlspecialchars($row['W_NAME' ]).'</li>';
-            echo '          <li class="list-group-item"><button class="btn btn-dark" type="submit" name="ISBN" value="'.htmlspecialchars($row["ISBN"]).'">修改資料</button>';
-            echo "          <button type='button' class='btn btn-dark' onclick='location.href=\"detail.php?ISBN=".htmlspecialchars($row['ISBN' ])."\"'>詳細資料</button></li>";
+            echo '          <li class="list-group-item"><div class="row justify-content-around">';
+            echo '          <button class="btn btn-dark col-auto" type="submit" name="ISBN" value="'.htmlspecialchars($row["ISBN"]).'">修改資料</button>';
+            echo "          <button type='button' class='btn btn-dark col-auto' onclick='location.href=\"detail.php?ISBN=".htmlspecialchars($row['ISBN' ])."\"'>詳細資料</button></div></li>";
             echo '        </ul>';
             echo '      </div>';
             echo '    </div>';
           }
         ?>
       </div>
-      </form>
-      <button type="button" class="btn btn-dark" onclick="location.href='detail.php?ISBN='">新增作者</button>
+      </form>    
     </div>
 
 <!-- jQuery’s slim build -->

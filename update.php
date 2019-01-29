@@ -29,7 +29,7 @@
       }
     ?>
 
-    <div class="container" style="margin-top:55px;" id="content">
+    <div class="container" style="margin-top:85px;" id="content">
     <!-- 更新&刪除資料 -->
     <?php
         if ($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST["btn_submit"])) {
