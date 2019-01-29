@@ -20,16 +20,16 @@
     <!-- navbar -->
     <script type="text/javascript" src="navbar.js"></script>
 
-    <!-- 連接資料庫 -->
-    <?php
-      try {
-        $pdo=new PDO("mysql:host=localhost;dbname=bookshops;charset=utf8","root","");
-      } catch (PDOException $err) {
-        die("資料庫無法連接");
-      }
-    ?>
-    
     <div class="container" style="margin-top:85px;" id="content">
+      <!-- 連接資料庫 -->
+      <?php
+        try {
+          $pdo=new PDO("mysql:host=localhost;dbname=bookshops;charset=utf8","root","");
+        } catch (PDOException $err) {
+          die("資料庫無法連接");
+        }
+      ?>
+
       <!-- 新增資料 -->
       <?php
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
