@@ -2,7 +2,11 @@ document.writeln("    <footer class=\'footer\'>");
 document.writeln("      <div class=\'container\'>");
 document.writeln("        <div class=\'row justify-content-end text-muted\'>");
 document.writeln("          <div class=\'col-md-auto pull-right\' >");
+<<<<<<< HEAD
 document.writeln("            This is exercise for PHP + MySQL. If you want to see more. You can click");
+=======
+document.writeln("            This is SmallMentor\'s exercise for PHP + MySQL. If you want to see more. You can click");
+>>>>>>> 354f7baa5371a5273cfbe63af4321a8b34870f60
 document.writeln("            <a href=\'index.php\' class=\'text-muted\'>hear</a>.");
 document.writeln("          </div>");
 document.writeln("        </div>");
